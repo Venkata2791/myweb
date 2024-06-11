@@ -10,7 +10,7 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                git credentialsId: 'javahome2', url: 'https://github.com/Venkata2791/myweb'
+                git credentialsId: 'Venkata2791', url: 'https://github.com/Venkata2791/myweb'
             }
         }
         stage("Maven Build"){
@@ -42,7 +42,7 @@ pipeline{
             steps{
                  sh 'docker build -t venkata2786/spring-boot-mongo .'
                  sh 'docker build -t tomcat:${BUILD_NUMBER} .'
-                 sh 'docker run -itd --name venk86 -p 3800:8080 tomcat:${BUILD_NUMBER}'
+                 sh 'docker run -itd --name venk86 -p 3400:8080 tomcat:${BUILD_NUMBER}'
              }
          }
         stage('Push Docker Image'){
